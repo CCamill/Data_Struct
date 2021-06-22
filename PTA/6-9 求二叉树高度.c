@@ -18,7 +18,6 @@ int main()
     BinTree BT = CreatBinTree();
     /**
 	 * 				A
-	 * 			    
 	 * 		     /     \
 	 * 		    B	    C
 	 * 		   / \     / \
@@ -71,5 +70,14 @@ BinTree CreatBinTree(){
 	return A;
 }
 int GetHeight( BinTree BT ){
-    
+    int high;
+    int lh,rh;
+    if ( BT == NULL)
+        return 0;
+    else{
+        lh = GetHeight(BT->Left);
+        rh = GetHeight(BT->Right);
+        high = lh > rh ? lh : rh;
+        return high+1;
+    }
 }
