@@ -68,7 +68,7 @@ void InorderTraversal(BinTree BT)
         if (!IsEmpty(S))
         {
             BT = Pop(S);
-            printf("%c\n", BT->Data);
+            printf(" %c", BT->Data);
             BT = BT->Right;
         }
     }
@@ -80,7 +80,7 @@ void PreorderTraversal(BinTree BT)
     {
         while (BT)
         {
-            printf("%c\n", BT->Data);
+            printf(" %c", BT->Data);
             Push(S, BT);
             BT = BT->Left;
         }
@@ -93,7 +93,25 @@ void PreorderTraversal(BinTree BT)
 void PostorderTraversal(BinTree BT)
 {
     Stack S = CreateStack();
-
+    while(BT || !IsEmpty(S)){
+        while (BT){
+            Push(S,BT);
+            BT->flag = 1;
+            BT = BT->Left;
+        }
+        if(!IsEmpty(S)){
+            BT = Pop(S);
+            if (BT->flag == 1){
+                Push(S,BT);
+                BT->flag=2;
+                BT = BT->Right;
+            }
+            else{
+                printf(" %c",BT->Data);
+                BT = NULL;
+            }
+        }
+    }
 }
 BinTree CreatBinTree(){
     BinTree A = (BinTree)malloc(sizeof(BinTree));
