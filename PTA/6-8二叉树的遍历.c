@@ -11,7 +11,7 @@ typedef struct TNode{
 }TNode;
 
 BinTree CreatBinTree(); /* 创建二叉树 */
-void InorderTraversal( BinTree BT );//中序遍历
+void IgnoreTraversal( BinTree BT );//中序遍历
 void PreorderTraversal( BinTree BT );//先序遍历
 void PostorderTraversal( BinTree BT );//后序遍历
 void LevelorderTraversal( BinTree BT );//层次遍历
@@ -29,7 +29,7 @@ int main()
 	 * 			 /     \
 	 * 			E       H
 	*/
-    // printf("Inorder:");    InorderTraversal(BT);    printf("\n");
+    // printf("Ignore:");    IgnoreTraversal(BT);    printf("\n");
     // printf("Preorder:");   PreorderTraversal(BT);   printf("\n");
     // printf("Postorder:");  PostorderTraversal(BT);  printf("\n");
     printf("Levelorder:"); LevelorderTraversal(BT); printf("\n");
@@ -77,13 +77,13 @@ BinTree CreatBinTree(){
 	return A;
 }
 //中序遍历
-void InorderTraversal(BinTree BT)
+void IgnoreTraversal(BinTree BT)
 {
 	if (BT)
 	{
-		InorderTraversal(BT->Left);
+		IgnoreTraversal(BT->Left);
 		printf(" %c", BT->Data);
-		InorderTraversal(BT->Right);
+		IgnoreTraversal(BT->Right);
 	}
 }
 //前序遍历

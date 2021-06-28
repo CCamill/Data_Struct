@@ -34,7 +34,7 @@ int main()
     G = CreateGraph();
     scanf("%d", &V);
     if( V>=G->Nv){
-        printf("Please enter an integer less than %d,please.",G->Nv);
+        printf("Please enter an integer less than %d,please.",G->Nv-1);
         exit(1);
     }
     printf("DFS from %d:", V);

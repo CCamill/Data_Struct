@@ -36,15 +36,15 @@ SElementType Peek(Stack S); /* 仅返回S的栈顶元素 */
 /*----堆栈的定义结束-----*/
 
 BinTree CreateBinTree(); /* 裁判实现，细节不表 */
-void InorderTraversal(BinTree BT);
+void IgnoreTraversal(BinTree BT);
 void PreorderTraversal(BinTree BT);
 void PostorderTraversal(BinTree BT);
 
 int main()
 {
     BinTree BT = CreateBinTree();
-    printf("Inorder:");
-    InorderTraversal(BT);
+    printf("Ignore:");
+    IgnoreTraversal(BT);
     printf("\n");
     printf("Preorder:");
     PreorderTraversal(BT);
@@ -55,7 +55,7 @@ int main()
     return 0;
 }
 /* 你的代码将被嵌在这里 */
-void InorderTraversal(BinTree BT)
+void IgnoreTraversal(BinTree BT)
 {
     Stack S = CreateStack();
     while (BT || !IsEmpty(S))
